@@ -1,0 +1,21 @@
+Base de Datos
+
+Añadir nueva conexión en mysql workbench con la información de abajo.
+
+HostName: 34.215.253.211
+Username: admin
+Port: 3306
+Password: asd123
+
+---------------------------------------------------------
+Servidor AWS
+
+1. Iniciar "Escritorio remoto"
+2. En equipo poner "34.215.253.211"
+3. Colocar credenciales username y password.
+
+Public DNS	ec2-34-215-253-211.us-west-2.compute.amazonaws.com
+User name	Administrator
+Password	V8qZ?8w=2V2iGLA(rqX4=uN!JTw%N@zW
+IPv4 Public IP	34.215.253.211
+Private IPs	172.31.30.169
