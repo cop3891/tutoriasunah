@@ -56,13 +56,9 @@ export class UsuarioService {
 		const body = this.encodeDataToURL(usuario);
 		console.log(body)
 		const url = urljoin(environment.apiUrl, 'login');
-		let headers: HttpHeaders = new HttpHeaders();
-		headers = headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    	headers = headers.append('Authorization', "3d524a53c110e4c22463b10ed32cef9d");
+		const headers = new HttpHeaders({'Content-Type':'application/x-www-form-urlencoded','Authorization':'3d524a53c110e4c22463b10ed32cef9d'});
 		console.log(headers)
-		return this.http.post(url, body, { headers: headers}).subscribe(data => {   // data is a string
-    console.log(data);
-});
+		return this.http.request("POST",url,{headers}).subscribe(value => console.log(value))
 	}
 
 	encodeDataToURL = (data) => {

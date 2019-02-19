@@ -14,7 +14,7 @@
  * Mas información: https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
  **/
 header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD");
 $method = $_SERVER['REQUEST_METHOD'];
