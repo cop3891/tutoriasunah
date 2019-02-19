@@ -55,7 +55,7 @@ export class UsuarioService {
     iniciarSesion(usuario: any) {
 		const body = JSON.stringify(usuario);
 		const headers = new Headers({ 'Content-Type': 'application/json' });
-		const url = urljoin(environment.apiUrl, 'sesion/iniciarSesion');
+		const url = urljoin(environment.apiUrl, '/login');
 
 		return this.http.post(url, body, { headers })
 		  .map((response: Response) => response.json())

@@ -49,15 +49,15 @@ export class InicioSesionComponent implements OnInit {
 			}
 		});
 
-		this.usuarioService.iniciarSesion({tipoUsuario: 'estudiante', numeroCuenta: '2014100', Contrasenia: '1234'})
+		
+	}
+
+	iniciarSesion():void{
+		this.usuarioService.iniciarSesion({tipoUsuario: 'estudiante', numeroCuenta: '20131013754', contrasenia: 'asd123'})
 		.subscribe((resp)=>{
 			console.log('Iniciando sesion..............');
 			console.log(resp);
 		})
-	}
-
-	iniciarSesion():void{
-		this.router.navigate(['principal/'+this.tipoUsuario, 'panelAvisos']);
 	}
 
 }
