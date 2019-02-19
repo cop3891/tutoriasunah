@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   mostrarFooter: true,
-  apiUrl: 'http://34.215.253.211:80/Backend/'
+  apiUrl: 'http://34.215.253.211:80/Backend/v1/'
 };
