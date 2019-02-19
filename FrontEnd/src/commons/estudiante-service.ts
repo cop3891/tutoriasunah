@@ -19,7 +19,7 @@ export class EstudianteService {
     const body = this.encodeDataToURL(estudiante);
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    headers.append('authentication', "3d524a53c110e4c22463b10ed32cef9d");
+    headers.append('Authorization', "3d524a53c110e4c22463b10ed32cef9d");
     const url = urljoin(this.estudianteUrl, 'registrarEstudiante');
 
     return this.http.post(url, body, { headers })

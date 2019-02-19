@@ -54,9 +54,11 @@ export class UsuarioService {
 
     iniciarSesion(usuario: any) {
 		const body = this.encodeDataToURL(usuario);
+		console.log(body)
 		let headers = new Headers();
     	headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    	headers.append('authentication', "3d524a53c110e4c22463b10ed32cef9d");
+    	headers.append('Authorization', "3d524a53c110e4c22463b10ed32cef9d");
+    	console.log(headers)
 		const url = urljoin(environment.apiUrl, '/login');
 
 		return this.http.post(url, body, { headers })
