@@ -57,7 +57,6 @@ $app->get('/auto', function() {
 
 $app->post('/login', function(){
     // check for required params
-    verifyRequiredParams(array('numeroCuenta', 'contrasenia'));
 
     $response = array();
     //capturamos los parametros recibidos y los almacxenamos como un nuevo array
