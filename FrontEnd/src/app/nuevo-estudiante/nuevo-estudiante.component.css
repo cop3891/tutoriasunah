@@ -1,0 +1,20 @@
+.top-20{
+	margin-top: 20px;
+}
+
+.btn-centrado{
+	display: block;
+    margin: auto;
+    width: 35%;
+}
+
+.btn-derecho{
+    width: 35%;
+    float: right;
+    margin-top: 8px;
+}
+
+.btn-izquierdo{
+    width: 35%;
+    float: left;
+}

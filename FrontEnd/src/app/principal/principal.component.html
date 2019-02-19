@@ -1,0 +1,92 @@
+<div class="container b-div-gray-inicio-sesion b-border"><br>
+    <div class="row">
+        <div class="col-3 b-menu-principal">
+            <div class="list-group">
+              <!--Opciones para los estudiantes-->
+              <button *ngIf="tipoUsuario == 'estudiante'" (click)="abrirVista('forma03')" type="button" class="b-item-menu-principal list-group-item list-group-item-action">
+              	<img class="b-img-item-menu-principal" src="../../assets/icon/card.png">
+              	<p class="b-lbl-item-menu-principal">Forma 03</p>
+              </button>
+              <button *ngIf="tipoUsuario == 'estudiante'" (click)="abrirVista('historial')" type="button" class="b-item-menu-principal list-group-item list-group-item-action">
+              	<img class="b-img-item-menu-principal" src="../../assets/icon/presentation.png">
+              	<p class="b-lbl-item-menu-principal">Historial académico</p>
+              </button>
+              <button *ngIf="tipoUsuario == 'estudiante'" (click)="abrirVista('matricula')" type="button" class="b-item-menu-principal list-group-item list-group-item-action">
+              	<img class="b-img-item-menu-principal" src="../../assets/icon/list.png">
+              	<p class="b-lbl-item-menu-principal">Matrícula</p>
+              </button>
+              <button *ngIf="tipoUsuario == 'estudiante'" (click)="abrirVista('programacionAcademica')" type="button" class="b-item-menu-principal list-group-item list-group-item-action">
+              	<img class="b-img-item-menu-principal" src="../../assets/icon/calendar.png">
+              	<p class="b-lbl-item-menu-principal">Programación académica</p>
+              </button>
+              <button *ngIf="tipoUsuario == 'estudiante'" type="button" class="b-item-menu-principal list-group-item list-group-item-action">
+              	<img class="b-img-item-menu-principal" src="../../assets/icon/pencil.png">
+              	<p class="b-lbl-item-menu-principal">Solicitudes</p>
+              </button>
+
+              <!--Opciones para catedraticos-->
+              <button *ngIf="tipoUsuario == 'docente'" (click)="abrirVista('secciones')" type="button" class="b-item-menu-principal list-group-item list-group-item-action">
+              	<img class="b-img-item-menu-principal" src="../../assets/icon/list.png">
+              	<p class="b-lbl-item-menu-principal">Secciones</p>
+              </button>
+              <button *ngIf="tipoUsuario == 'docente'" (click)="abrirVista('estudiantesDeSecciones')" type="button" class="b-item-menu-principal list-group-item list-group-item-action">
+                <img class="b-img-item-menu-principal" src="../../assets/icon/id-card.png">
+                <p class="b-lbl-item-menu-principal">Estudiantes</p>
+              </button>
+              <button *ngIf="tipoUsuario == 'docente'" (click)="abrirVista('calificaciones')" type="button" class="b-item-menu-principal list-group-item list-group-item-action">
+              	<img class="b-img-item-menu-principal" src="../../assets/icon/presentation.png">
+              	<p class="b-lbl-item-menu-principal">Calificaciones</p>
+              </button>
+              <button *ngIf="tipoUsuario == 'docente'" type="button" class="b-item-menu-principal list-group-item list-group-item-action">
+              	<img class="b-img-item-menu-principal" src="../../assets/icon/clipboard-with-a-list.png">
+              	<p class="b-lbl-item-menu-principal">Asistencia</p>
+              </button>
+
+              <button *ngIf="tipoUsuario == 'estudiante' || tipoUsuario == 'docente'" type="button" class="b-item-menu-principal list-group-item list-group-item-action">
+              	<img class="b-img-item-menu-principal" src="../../assets/icon/change.png">
+              	<p class="b-lbl-item-menu-principal">Estado de cuenta</p>
+              </button>
+
+              <!--Opciones para administracion-->
+              <button *ngIf="tipoUsuario == 'administracion'" (click)="abrirVista('buscarEstudiante')" type="button" class="b-item-menu-principal list-group-item list-group-item-action">
+              	<img class="b-img-item-menu-principal" src="../../assets/icon/id-card.png">
+              	<p class="b-lbl-item-menu-principal">Estudiantes</p>
+              </button>
+              <button *ngIf="tipoUsuario == 'administracion'" (click)="abrirVista('docentes')" type="button" class="b-item-menu-principal list-group-item list-group-item-action">
+              	<img class="b-img-item-menu-principal" src="../../assets/icon/identity-card.png">
+              	<p class="b-lbl-item-menu-principal">Empleados</p>
+              </button>
+              <button *ngIf="tipoUsuario == 'administracion'" (click)="abrirVista('campus')" type="button" class="b-item-menu-principal list-group-item list-group-item-action">
+              	<img class="b-img-item-menu-principal" src="../../assets/icon/school.png">
+              	<p class="b-lbl-item-menu-principal">Campus</p>
+              </button>
+              <button *ngIf="tipoUsuario == 'administracion'" (click)="abrirVista('facultades')" type="button" class="b-item-menu-principal list-group-item list-group-item-action">
+              	<img class="b-img-item-menu-principal" src="../../assets/icon/book.png">
+              	<p class="b-lbl-item-menu-principal">Facultades</p>
+              </button>
+              <button *ngIf="tipoUsuario == 'administracion'" (click)="abrirVista('periodos')" type="button" class="b-item-menu-principal list-group-item list-group-item-action">
+                <img class="b-img-item-menu-principal" src="../../assets/icon/calendar.png">
+                <p class="b-lbl-item-menu-principal">Periodos</p>
+              </button>
+              <button *ngIf="tipoUsuario == 'administracion'" (click)="abrirVista('bitacora')" type="button" class="b-item-menu-principal list-group-item list-group-item-action">
+              	<img class="b-img-item-menu-principal" src="../../assets/icon/agenda.png">
+              	<p class="b-lbl-item-menu-principal">Bitácora</p>
+              </button>
+            </div>
+        </div>
+        <div class="col-9">
+            <strong>{{lblAviso}}</strong>
+            <div class="dropdown b-btn-opcion-perfil">
+              <button class="btn btn-link dropdown-toggle b-btn-perfil-usuario" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img class="b-img-perfil-usuario" src="../../assets/img/user.jpg">
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button">Cambiar contraseña</button>
+                <button class="dropdown-item" type="button">Cerrar sesión</button>
+              </div>
+            </div>
+            <hr>
+            <router-outlet></router-outlet>
+        </div>
+    </div><br>
+</div>

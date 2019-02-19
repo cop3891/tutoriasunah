@@ -1,0 +1,302 @@
+<div class="container">
+	<div class="alert alert-light card-bordered" role="alert">
+		<div class="row">
+			<div class="col-2"></div>
+			<div class="col-8"><br>
+				<h4 class="text-center">Sistema de admisión UNAH</h4><br>
+				<ul class="nav nav-pills nav-fill" id="myTab" role="tablist">
+				  <li class="nav-item">
+				    <a [ngClass]="{active: listaTabs[0].activo, disabled: listaTabs[0].bloqueado}" class="nav-link" id="personal-tab" data-toggle="tab" href="#personal" role="tab" aria-controls="personal" aria-selected="true"><i class="fas fa-address-card"></i> Info. personal</a>
+				  </li>
+				  <li class="nav-item">
+				    <a [ngClass]="{active: listaTabs[1].activo, disabled: listaTabs[1].bloqueado}" class="nav-link" id="familia-tab" data-toggle="tab" href="#familia" role="tab" aria-controls="familia" aria-selected="true"><i class="fas fa-users"></i> Info. familiar</a>
+				  </li>
+				  <li class="nav-item">
+				    <a [ngClass]="{active: listaTabs[2].activo, disabled: listaTabs[2].bloqueado}" class="nav-link" id="preUniversitaria-tab" data-toggle="tab" href="#preUniversitaria" role="tab" aria-controls="preUniversitaria" aria-selected="false"><i class="fas fa-graduation-cap"></i> Info. Pre - universitaria</a>
+				  </li>
+				  <li class="nav-item">
+				    <a [ngClass]="{active: listaTabs[3].activo, disabled: listaTabs[3].bloqueado}" class="nav-link" id="universitaria-tab" data-toggle="tab" href="#universitaria" role="tab" aria-controls="universitaria" aria-selected="false"><i class="fas fa-university"></i> Info. Universitaria</a>
+				  </li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-2"></div>
+			<div class="col-8">
+				<div class="tab-content">
+				   <div [ngClass]="{active: listaTabs[0].activo}" class="tab-pane" id="personal" role="tabpanel" aria-labelledby="personal-tab">
+				   	<div class="row">
+				   		<div class="col-1"></div>
+				   		<div class="col-10">
+							<form><br>
+								<label class="font-weight-bold top-20" for="exampleInputEmail1">Información personal del estudiante</label><br>
+								<small><i class="fas fa-asterisk"></i> Todos los campos son requeridos</small><hr>
+								<div class="form-group">
+									<input [(ngModel)]="nuevoEstudiante.nombre" name="nombre" type="text" class="form-control form-control-sm" id="nombre" aria-describedby="emailHelp" placeholder="Nombre completo">
+								    <small *ngIf="false" id="emailHelp" class="form-text text-muted">El nombre es requerio</small>
+								</div>
+							    <div class="form-check radio-button-1">
+								  <input [(ngModel)]="nuevoEstudiante.codigoGenero" class="form-check-input" type="radio" name="genero" id="masculino" value="1" checked>
+								  <label class="form-check-label" for="masculino">
+								    Masculino
+								  </label>
+								</div>
+								<div class="form-check radio-button-2">
+								  <input [(ngModel)]="nuevoEstudiante.codigoGenero" class="form-check-input" type="radio" name="genero" id="femenino" value="2">
+								  <label class="form-check-label" for="femenino">
+								    Femenino
+								  </label>
+								</div>
+							    <div class="form-group input-identidad">
+							      <input pattern="[a-zA-Z ]*" [ngClass]="{'is-invalid': mostrarErrorIdentificacion}" [(ngModel)]="nuevoEstudiante.numeroIdentificaccion" name="numeroIdentificaccion" type="text" class="form-control form-control-sm" id="exampleInputPassword1" placeholder="Identidad">
+							      <div *ngIf="mostrarErrorIdentificacion" class="invalid-feedback">Ya ha sido registrado un estudiante con esta identificación</div>
+							    </div>
+							    <div class="form-check radio-button-1">
+								   <input [(ngModel)]="nuevoEstudiante.codigoTipoIdentificacion" name="tipoIdentificacion" class="form-check-input" type="radio" id="tarjetaIdentidad" value="1" checked>
+								   <label class="form-check-label" for="tarjetaIdentidad">
+								     Tarjeta identidad
+								   </label>
+								 </div>
+								<div class="form-check radio-button-2">
+								  <input [(ngModel)]="nuevoEstudiante.codigoTipoIdentificacion" class="form-check-input" type="radio" name="tipoIdentificacion" id="pasaporte" value="2">
+								  <label class="form-check-label" for="pasaporte">
+								    Pasaporte
+								  </label>
+								</div>
+								<div class="form-group top-20">
+							      <input (click)="verificarIdentidad(nuevoEstudiante.numeroIdentificaccion)" [(ngModel)]="nuevoEstudiante.fechaNacimiento" name="fechaNacimiento" type="date" class="form-control form-control-sm" id="fechaNacimiento" aria-describedby="emailHelp" placeholder="Fecha nacimiento">
+							      <small *ngIf="false" id="emailHelp" class="form-text text-muted">La fecha de nacimiento es requerio</small>
+							    </div>
+								<div class="form-group">
+									<input [(ngModel)]="nuevoEstudiante.correoPersonal" name="correoPersonal" type="email" class="form-control form-control-sm" id="correoPersonal" aria-describedby="emailHelp" placeholder="Correo electrónico">
+									<small *ngIf="correoPersonal" id="emailHelp" class="form-text text-muted">El correo es requerio</small>
+								</div>
+								<div class="form-group">
+									<input [(ngModel)]="nuevoEstudiante.telefono" name="telefono" type="text" class="form-control form-control-sm" id="telefono" aria-describedby="emailHelp" placeholder="Teléfono">
+									<small *ngIf="false" id="emailHelp" class="form-text text-muted">El teléfono es requerio</small>
+								</div>
+			  					<label for="exampleInputEmail1">Estado civil</label><br>
+								<div class="form-check radio-button-1">
+								  <input [(ngModel)]="nuevoEstudiante.codigoEstadoCivil" class="form-check-input" type="radio" name="estadoCivil" id="soltero" value="1" checked>
+								  <label class="form-check-label" for="soltero">
+								    Soltero (a)
+								  </label>
+								</div>
+								<div class="form-check radio-button-2">
+								  <input [(ngModel)]="nuevoEstudiante.codigoEstadoCivil" class="form-check-input" type="radio" name="estadoCivil" id="casado" value="2">
+								  <label class="form-check-label" for="casado">
+								    Casado (a)
+								  </label>
+								</div>
+								<div class="form-check radio-button-2">
+								  <input [(ngModel)]="nuevoEstudiante.codigoEstadoCivil" class="form-check-input" type="radio" name="estadoCivil" id="union" value="3">
+								  <label class="form-check-label" for="union">
+								    Unión libre
+								  </label>
+								</div>
+								<div class="form-check radio-button-2">
+								  <input [(ngModel)]="nuevoEstudiante.codigoEstadoCivil" class="form-check-input" type="radio" name="estadoCivil" id="divorciado" value="4">
+								  <label class="form-check-label" for="divorciado">
+								    Divorciado
+								  </label>
+								</div><br>
+							</form><br>
+							<button [disabled]="nuevoEstudiante.nombre == undefined || nuevoEstudiante.numeroIdentificaccion == undefined || nuevoEstudiante.fechaNacimiento == undefined || nuevoEstudiante.correoPersonal == undefined || nuevoEstudiante.telefono == undefined" (click)="seleccionarTab(1)" type="button" class="btn btn-outline-info btn-lg btn-block btn-centrado">Siguiente <i class="fas fa-arrow-right"></i></button>
+				   		</div>
+				   	</div>
+				   </div>
+				   <div [ngClass]="{active: listaTabs[1].activo}" class="tab-pane" id="familia" role="tabpanel" aria-labelledby="familia-tab">
+				   	<div class="row">
+				   		<div class="col-1"></div>
+				   		<div class="col-10">
+				   			<form><br>
+				   				<label class="font-weight-bold top-20" for="exampleInputEmail1">Información familiar y de residencia</label><hr>
+								<label for="exampleInputEmail1"><i class="fas fa-female"></i> Información de su madre</label>
+								<div class="form-group">
+									<input [(ngModel)]="nuevoEstudiante.nombreMadre" name="nombreMadre" type="text" class="form-control form-control-sm" id="nombre" aria-describedby="emailHelp" placeholder="Nombre completo">
+								    <small *ngIf="false" id="emailHelp" class="form-text text-muted">El nombre es requerio</small>
+								</div>
+								<div class="form-group">
+									<input [(ngModel)]="nuevoEstudiante.identidadMadre" name="identidadMadre" type="text" class="form-control form-control-sm" id="nombre" aria-describedby="emailHelp" placeholder="Identificación">
+								    <small *ngIf="false" id="emailHelp" class="form-text text-muted">El nombre es requerio</small>
+								</div>
+								<label for="exampleInputEmail1"><i class="fas fa-male"></i> Información de su padre</label>
+								<div class="form-group">
+									<input [(ngModel)]="nuevoEstudiante.nombrePadre" name="nombrePadre" type="text" class="form-control form-control-sm" id="nombre" aria-describedby="emailHelp" placeholder="Nombre completo">
+								    <small *ngIf="false" id="emailHelp" class="form-text text-muted">El nombre es requerio</small>
+								</div>
+								<div class="form-group">
+									<input [(ngModel)]="nuevoEstudiante.identidadPadre" name="identidadPadre" type="text" class="form-control form-control-sm" id="nombre" aria-describedby="emailHelp" placeholder="Identificación">
+								    <small *ngIf="false" id="emailHelp" class="form-text text-muted">El nombre es requerio</small>
+								</div>
+								<label for="exampleInputEmail1">Lugar donde reside usted actualmente</label>
+								<div class="row">
+									<div class="col-6">
+										<div class="btn-group select-nuevo-estudiante" role="group">
+									    <button id="btnGroupDrop1" type="button" class="btn dropdown-toggle btn-light btn-sm select-nuevo-estudiante" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									      {{departamentoResidenciaSeleccionado.nombreDepartamento}}
+									    </button>
+									    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+									    	<input type="text" class="form-control form-control-sm input-auto-complete" id="nombreDepartamento" aria-describedby="emailHelp" placeholder="Departamento">
+												<div role="separator" class="dropdown-divider"></div>
+									        <a (click)="seleccionarDepartamento(departemento, 'residencia')" class="dropdown-item" *ngFor="let departemento of listaDepartamentos">{{departemento.nombreDepartamento}}</a>
+									    </div>
+									  </div>
+									</div>
+									<div class="col-6">
+										<div class="btn-group select-nuevo-estudiante" role="group">
+									    <button [disabled]="departamentoResidenciaSeleccionado.codigoDepartamento == null" id="btnGroupDrop1" type="button" class="btn dropdown-toggle btn-light btn-sm select-nuevo-estudiante" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									      {{municipioResidenciaSeleccionado.nombreMunicipio}}
+									    </button>
+									    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+									    	<input type="text" class="form-control form-control-sm input-auto-complete" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Municipio">
+												<div role="separator" class="dropdown-divider"></div>
+											<a (click)="seleccionarMunicipio(municipio, 'residencia')" class="dropdown-item" *ngFor="let municipio of listaMunicipios">{{municipio.nombreMunicipio}}</a>
+									    </div>
+									  </div>
+									</div>
+								</div>
+				   				
+				   			</form><br>
+				   			<button [disabled]="municipioResidenciaSeleccionado.codigoMunicipio == null" (click)="seleccionarTab(2)" type="button" class="btn btn-outline-info btn-lg btn-block btn-derecho">Siguiente <i class="fas fa-arrow-right"></i></button>
+				   			<button (click)="seleccionarTab(0)" type="button" class="btn btn-outline-info btn-lg btn-block btn-izquierdo"><i class="fas fa-arrow-left"></i> Regresar</button>
+				   		</div>
+				   	</div>
+				   </div>
+				   <div [ngClass]="{active: listaTabs[2].activo}" class="tab-pane" id="preUniversitaria" role="tabpanel" aria-labelledby="preUniversitaria-tab">
+				   	  <div class="row">
+				   	  	<div class="col-1"></div>
+				   	  	<div class="col-10">
+				   	  		<form><br>
+							  <label class="font-weight-bold top-20" for="exampleInputEmail1">Información académica pre-universitaria</label><br>
+							  <small><i class="fas fa-asterisk"></i> Todos los campos son requeridos</small><hr>
+							  <label for="exampleInputEmail1">Información del centro educativo de origen</label><br>
+							  <div class="row">
+							  	<div class="col-6">
+							  		<div class="btn-group select-nuevo-estudiante" role="group">
+									    <button id="btnGroupDrop1" type="button" class="btn dropdown-toggle btn-light btn-sm select-nuevo-estudiante" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									      {{departamentoSeleccionado.nombreDepartamento}}
+									    </button>
+									    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+									    	<input type="text" class="form-control form-control-sm input-auto-complete" id="nombreDepartamento" aria-describedby="emailHelp" placeholder="Departamento">
+							  				<div role="separator" class="dropdown-divider"></div>
+									        <a (click)="seleccionarDepartamento(departemento, 'centroOrigen')" class="dropdown-item" *ngFor="let departemento of listaDepartamentos">{{departemento.nombreDepartamento}}</a>
+									    </div>
+									  </div>
+							  	</div>
+							  	<div class="col-6">
+							  		<div class="btn-group select-nuevo-estudiante" role="group">
+									    <button [disabled]="departamentoSeleccionado.codigoDepartamento == null" id="btnGroupDrop1" type="button" class="btn dropdown-toggle btn-light btn-sm select-nuevo-estudiante" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									      {{municipioSeleccionado.nombreMunicipio}}
+									    </button>
+									    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+									    	<input type="text" class="form-control form-control-sm input-auto-complete" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Municipio">
+							  				<div role="separator" class="dropdown-divider"></div>
+											<a (click)="seleccionarMunicipio(municipio, 'centroOrigen')" class="dropdown-item" *ngFor="let municipio of listaMunicipios">{{municipio.nombreMunicipio}}</a>
+									    </div>
+									  </div>
+							  	</div>
+							  </div><br>
+							  <div class="row">
+							  	<div class="col-6">
+							  		<div class="btn-group select-nuevo-estudiante" role="group">
+									    <button [disabled]="municipioSeleccionado.codigoMunicipio == null" id="btnGroupDrop1" type="button" class="btn dropdown-toggle btn-light btn-sm select-nuevo-estudiante" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									      {{colegioSeleccionado.nombreCentroEducativo}}
+									    </button>
+									    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+									    	<input type="text" class="form-control form-control-sm input-auto-complete" id="nombreColegio" aria-describedby="emailHelp" placeholder="Colegio procedencia">
+							  				<div role="separator" class="dropdown-divider"></div>
+									        <a (click)="seleccionarColegio(colegio)" class="dropdown-item" *ngFor="let colegio of listaColegios">{{colegio.nombreCentroEducativo}}</a>
+									    </div>
+									  </div>
+							  	</div>
+							  	<div class="col-6">
+							  		<div class="btn-group select-nuevo-estudiante" role="group">
+									    <button [disabled]="colegioSeleccionado.codigoCentroEducativo == null" id="btnGroupDrop1" type="button" class="btn dropdown-toggle btn-light btn-sm select-nuevo-estudiante" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									      Títulos obtenidos
+									    </button>
+									    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+									    	<input type="text" class="form-control form-control-sm input-auto-complete" id="nombreCarrera" aria-describedby="emailHelp" placeholder="Títulos obtenidos">
+							  				<div role="separator" class="dropdown-divider"></div>
+											<a (click)="seleccionarTitulo(titulo)" class="dropdown-item" *ngFor="let titulo of listaTitulosCentrosEducativos">{{titulo.nombreCarrera}}</a>
+									    </div>
+									  </div>
+							  	</div>
+							  </div><br>
+							  <label for="exampleInputEmail1">Títulos académicos obtenidos</label><br>
+							  	<div *ngFor="let tituloSeleccionado of listaTitulosSeleccionados" class="alert alert-info alert-dismissible fade show" role="alert">
+									{{tituloSeleccionado.nombreCarrera}}
+									<button type="button" class="close " data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+				   	  		</form><br>
+				   	  		<button [disabled]="listaTitulosSeleccionados.length == 0" (click)="seleccionarTab(3)" type="button" class="btn btn-outline-info btn-lg btn-block btn-derecho">Siguiente <i class="fas fa-arrow-right"></i></button>
+				   			<button (click)="seleccionarTab(1)" type="button" class="btn btn-outline-info btn-lg btn-block btn-izquierdo"><i class="fas fa-arrow-left"></i> Regresar</button>
+				   	  	</div>
+				   	  </div>
+				   </div>
+				   <div [ngClass]="{active: listaTabs[3].activo}" class="tab-pane" id="universitaria" role="tabpanel" aria-labelledby="universitaria-tab">
+				   	<div class="row">
+				   		<div class="col-1"></div>
+				   		<div class="col-10">
+				   			<form ><br>
+								<label class="font-weight-bold top-20" for="exampleInputEmail1">Información académica universitaria</label><br>
+								<small><i class="fas fa-asterisk"></i> Todos los campos son requeridos</small><hr>
+								<div class="row">
+							  	<div class="col-6">
+							  		<div class="btn-group select-nuevo-estudiante" role="group">
+									    <button [disabled]="!habilitarFormulario" id="btnGroupDrop1" type="button" class="btn dropdown-toggle btn-light btn-sm select-nuevo-estudiante" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									      {{campusSeleccionado.nombreCampus}}
+									    </button>
+									    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+							  				<div role="separator" class="dropdown-divider"></div>
+									        <a (click)="seleccionarCampus(campus)" class="dropdown-item" *ngFor="let campus of listaCampus">{{campus.nombreCampus}}</a>
+									    </div>
+									  </div>
+							  	</div>
+							  	<div class="col-6">
+							  		<div class="btn-group select-nuevo-estudiante" role="group">
+									    <button [disabled]="campusSeleccionado.codigoCampus == null" id="btnGroupDrop1" type="button" class="btn dropdown-toggle btn-light btn-sm select-nuevo-estudiante" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									      {{carreraSeleccionada.nombreCarrera}}
+									    </button>
+									    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+							  				<div role="separator" class="dropdown-divider"></div>
+											<a (click)="seleccionarCarrera(carrera)" class="dropdown-item" *ngFor="let carrera of listaCarreras">{{carrera.nombreCarrera}}</a>
+									    </div>
+									  </div>
+							  	</div>
+							  </div><br>
+							  <div class="input-group">
+						        <input [disabled]="!habilitarFormulario" [(ngModel)]="nuevoEstudiante.correoInstitucional" name="correoInstitucional" type="mail" class="form-control form-control-sm" id="correoInstitucional" placeholder="Correo institucional" aria-describedby="inputGroupPrepend3" required>
+						        <div class="input-group-prepend">
+						          <span class="input-group-text" id="inputGroupPrepend3">@unah.hn</span>
+						        </div>
+						        <div *ngIf="false" id="emailHelp" class="invalid-feedback">
+						          Please choose a username.
+						        </div>
+						      </div><br>
+							  <label for="exampleInputEmail1">Modalidad educativa</label><br>
+							  <div class="form-check radio-button-1">
+								  <input [disabled]="!habilitarFormulario" [(ngModel)]="nuevoEstudiante.codigoModalidad" class="form-check-input" type="radio" name="tipoDisponibilidad" id="presencial" value="1" checked>
+								  <label class="form-check-label" for="presencial">
+								    Educación presencial
+								  </label>
+								</div>
+								<div class="form-check radio-button-2">
+								  <input [disabled]="!habilitarFormulario" [(ngModel)]="nuevoEstudiante.codigoModalidad" class="form-check-input" type="radio" name="tipoDisponibilidad" id="distancia" value="2">
+								  <label class="form-check-label" for="distancia">
+								    Educación a distancia
+								  </label>
+								</div>
+				   			</form><br>
+				   			<button style="width: 40% !important;" [disabled]="!habilitarFormulario || carreraSeleccionada.codigoCarrera == null || nuevoEstudiante.correoInstitucional == undefined" (click)="guardarRegistroEstudiante()" type="button" class="btn btn-outline-info btn-lg btn-block btn-derecho"><img *ngIf="!habilitarFormulario" class="spinner" src="assets/icon/spinner.gif"><i *ngIf="habilitarFormulario" class="fas fa-check-circle"></i> Enviar inscripción</button>
+				   			<button [disabled]="!habilitarFormulario" (click)="seleccionarTab(2)" type="button" class="btn btn-outline-info btn-lg btn-block btn-izquierdo"><i class="fas fa-arrow-left"></i> Regresar</button>
+				   		</div>
+				   	</div>
+				   </div>
+				 </div>
+			</div>
+		</div>
+	</div>
+</div>

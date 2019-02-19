@@ -1,0 +1,249 @@
+@import '~ng2-file-input/ng2-file-input.css';
+.b-nav-bar-inicio-sesion{
+	background-color: #183F60 !important;
+}
+
+.b-logo-unah{
+	width: 90%;
+}
+
+.b-titulo-unah{
+	margin-top: 20px;
+	text-align: center;
+}
+
+.b-sub-titulo-unah{
+	margin-top: -5px;
+	text-align: center;
+}
+
+.b-fondo-gris{
+	background-color: #F5F7FA;
+}
+
+.b-div-aviso{
+	height: 50px;
+	width: 100%;
+	background-color: #E6E9ED;
+	padding-top: 10px;
+    padding-left: 10px;
+    border-bottom: 2px dashed #CCC;
+}
+
+.b-btn-login{
+	width: 55%;
+    margin: auto;
+    display: block;
+}
+
+.b-form-login{
+	margin-top: 20%;
+    border: 1px dashed #ddd;
+    padding: 19px;
+}
+
+.b-div-gray-inicio-sesion{
+	background-color: #f5f7fa40;
+}
+
+.b-border{
+	border: 0.5px solid #E6E9ED;
+}
+
+.b-img-item-menu-principal{
+	height: 35px;
+	display: block;
+    margin: auto;
+}
+
+.b-lbl-item-menu-principal{
+	text-align: center;
+    margin-bottom: 0px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.b-menu-principal{
+	padding-left: 3%;
+    padding-right: 3%;
+	border-right: 2px dashed#183f60;
+}
+
+.b-item-menu-principal{
+	margin-top: 4px;
+	margin-bottom: 4px;
+	background: #E6E9ED;
+}
+
+.b-img-perfil-usuario{
+	width: 40px;
+    border-radius: 50%;
+    height: 40px;
+}
+
+.b-btn-opcion-perfil{
+	display: inline;
+    position: absolute;
+    right: 15px;
+    top: -20px;
+}
+
+.b-btn-perfil-usuario:hover{
+	text-decoration: none;
+}
+
+.b-btn-perfil-usuario:focus{
+	text-decoration: none;
+}
+
+.b-barra-navegacion{
+	background-color: #FFF;
+    margin-top: -10px;
+}
+
+.b-img-forma-03{
+	height: 100px;
+    width: 100px;
+}
+
+.b-informacion-general-forma03{
+	border: 1px solid #DDD;
+    padding-top: 10px;
+}
+
+.region-1{
+	height: 30px;
+    width: 100%;
+    background-color: #183f60;
+    color: #FFF;
+    padding-top: 2px;
+    margin-bottom: 3px;
+}
+
+.region-2{
+    height: 30px;
+    width: 100%;
+    background-color: #e6e9ed;
+    margin-top: 20px;
+    color: #183f60;
+    padding-top: 2px;
+    margin-bottom: 3px;
+}
+
+.b-lbl-region-1{
+	text-align: center;
+}
+
+.b-celda-tabla-forma03{
+	font-size: 14px;
+}
+
+.b-forma-03{
+	padding: 6px;
+}
+
+.b-btn-descargar-pdf{
+	position: absolute;
+    right: 5%;
+}
+
+.card-bordered{
+	border: 1px solid #DDD;
+}
+
+.select-nuevo-estudiante{
+	width: 100%;
+}
+
+.input-auto-complete{
+	width: 95%;
+    display: block;
+    margin: auto;
+}
+
+.img-nuevo-usuario{
+	width: 100%;
+}
+
+.radio-button-1{
+	display: -webkit-inline-box;
+}
+
+.radio-button-2{
+	display: inline; 
+	margin-left: 10px;
+}
+
+.input-identidad{
+	margin-top: 10px;
+}
+
+.spinner{
+	height: 30px;
+    width: 30px;
+    margin-left: 5px;
+}
+
+.btn-menu-estudiante{
+	margin-top: 5px;
+    margin-bottom: 7px;
+    text-align: left;
+    color: #103d5f;
+}
+
+.btn-registro{
+	margin-top: 22px;
+}
+
+.img-estudiante{
+	width: 80%;
+}
+
+.centrar-spinner{
+	display: block;
+    margin: auto;
+}
+
+.text-align-left{
+	margin-left: 20px;
+}
+
+.btn-cargar-mas{
+	height: 20px;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: block;
+    margin: auto;
+    font-size: 12px;
+}
+
+.lbl-titulo-regitro{
+	font-size: 1.1rem;
+}
+
+.lbl-estadisticos-registro{
+	font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 0px;
+}
+
+.aviso{
+	color: red;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.card-customised{
+	border: 1px solid #ddd;
+    background: #0d5cd412;
+    padding: 7px;
+}
+
+.card-button-customised{
+	top: -8px !important;
+}
+
+.txt-tachado{
+	text-decoration: line-through !important;
+}

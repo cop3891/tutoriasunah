@@ -1,0 +1,32 @@
+<div class="container b-border">
+  <div class="b-div-gray-inicio-sesion"><br>
+    <strong>{{lblAviso1}}</strong><hr>
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4">
+        <form class="b-form-login">
+          <h5 class="text-center txt-aviso2">{{lblAviso2}}</h5><br>
+          <div class="form-group">
+            <label for="formGroupExampleInput">{{lblTituloPrimerInput}}</label>
+            <input type="text" class="form-control" id="formGroupExampleInput"  placeholder="{{lblTituloPrimerInput}}">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Clave de acceso</label>
+            <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Clave">
+          </div>
+          <button (click)="iniciarSesion()" type="button" class="btn btn-outline-info b-btn-login">Ingresar</button>
+        </form>
+      </div>
+    </div><br>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <blockquote class="blockquote text-center">
+          <footer class="blockquote-footer"><cite title="Source Title">Si tiene problemas para ingresar al sistema, favor comunicarse al Tel: 2232-6862</cite></footer>
+          <footer class="blockquote-footer"><cite title="Source Title">Para una mejor experiencia de navegación utilice los navegadores Internet Explorer o Google-Chrome
+          </cite></footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</div>
