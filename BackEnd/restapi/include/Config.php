@@ -4,7 +4,7 @@
  */
 define('DB_USERNAME', 'admin');
 define('DB_PASSWORD', 'asd123');
-define('DB_HOST', 'localhost');
+define('DB_HOST', '172.31.30.169');
 define('DB_NAME', 'tutoriasunahdb');
 
 //referencia generado con MD5(uniqueid(<some_string>, true))
