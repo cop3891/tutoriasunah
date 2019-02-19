@@ -55,10 +55,10 @@ export class UsuarioService {
     iniciarSesion(usuario: any) {
 		const body = this.encodeDataToURL(usuario);
 		console.log(body)
-		const url = urljoin(environment.apiUrl, 'login');
-		const headers = new HttpHeaders({'Content-Type':'application/x-www-form-urlencoded','Authorization':'3d524a53c110e4c22463b10ed32cef9d'});
+		const url = urljoin(environment.apiUrl, 'auto');
+		const headers = new HttpHeaders({'Content-Type':'application/x-www-form-urlencoded'});
 		console.log(headers)
-		return this.http.request("POST",url,{headers}).subscribe(value => console.log(value))
+		return this.http.post(url,body,{headers}).subscribe(value => console.log(value))
 	}
 
 	encodeDataToURL = (data) => {
