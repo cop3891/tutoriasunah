@@ -60,7 +60,9 @@ export class UsuarioService {
 		headers = headers.append('Content-Type', 'application/x-www-form-urlencoded');
     	headers = headers.append('Authorization', "3d524a53c110e4c22463b10ed32cef9d");
 		console.log(headers)
-		return this.http.post(url, body, { headers: headers}).subscribe()
+		return this.http.post(url, body, { headers: headers}).subscribe(data => {   // data is a string
+    console.log(data);
+});
 	}
 
 	encodeDataToURL = (data) => {
