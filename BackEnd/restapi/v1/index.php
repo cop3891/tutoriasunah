@@ -56,7 +56,7 @@ $app->get('/auto', function() {
 
 /* Usando POST para crear un auto */
 
-$app->post('/login', function(){
+$app->post('/login', 'authenticate', function() use ($app) {
     // check for required params
     verifyRequiredParams(array('numeroCuenta', 'contrasenia'));
 

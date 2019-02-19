@@ -20,8 +20,10 @@ class DbHandler {
  
     public function createAuto($array)
     {
-        if ($array->numeroCuenta == "20131013754" and $array->contrasenia == "asd123") {
+        if ($array['numeroCuenta'] == "20131013754" and $array['contrasenia'] == "asd123") {
             return "success";
+        }else{
+            return "fail";
         }
     }
  
