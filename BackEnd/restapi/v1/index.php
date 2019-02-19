@@ -25,7 +25,7 @@ include_once '../include/Config.php';
 /* Puedes utilizar este file para conectar con base de datos incluido en este demo; 
  * si lo usas debes eliminar el include_once del file Config ya que le mismo está incluido en DBHandler 
  **/
-//require_once '../include/DbHandler.php'; 
+require_once '../include/DbHandler.php'; 
 
 require '../libs/Slim/Slim.php'; 
 \Slim\Slim::registerAutoloader(); 
@@ -56,7 +56,7 @@ $app->get('/auto', function() {
 
 /* Usando POST para crear un auto */
 
-$app->post('/login', 'authenticate', function() use ($app) {
+$app->post('/login', function(){
     // check for required params
     verifyRequiredParams(array('numeroCuenta', 'contrasenia'));
 
