@@ -53,7 +53,7 @@ export class InicioSesionComponent implements OnInit {
 	}
 
 	iniciarSesion():void{
-		this.usuarioService.iniciarSesion({tipoUsuario: 'estudiante', numeroCuenta: '20131013754', contrasenia: 'asd123'})
+		this.usuarioService.iniciarSesion({numeroCuenta: '20131013754', contrasenia: 'asd123'})
 		.subscribe((resp)=>{
 			console.log('Iniciando sesion..............');
 			console.log(resp);

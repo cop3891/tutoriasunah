@@ -71,6 +71,8 @@ $app->post('/login', 'authenticate', function() use ($app) {
     /* Podemos crear un metodo que almacene el nuevo auto, por ejemplo: */
     $auto = $db->createAuto($param);
 
+    $response["login"] = $auto;
+
     echoResponse(201, $response);
 });
 

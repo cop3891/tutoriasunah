@@ -53,12 +53,22 @@ export class UsuarioService {
     }
 
     iniciarSesion(usuario: any) {
-		const body = JSON.stringify(usuario);
-		const headers = new Headers({ 'Content-Type': 'application/json' });
+		const body = this.encodeDataToURL(usuario);
+		let headers = new Headers();
+    	headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    	headers.append('authentication', "3d524a53c110e4c22463b10ed32cef9d");
 		const url = urljoin(environment.apiUrl, '/login');
 
 		return this.http.post(url, body, { headers })
 		  .map((response: Response) => response.json())
 		  .catch((error: Response) => Observable.throw(error.json()));
 	}
+
+	encodeDataToURL = (data) => {
+    return Object
+      .keys(data)
+      .map(value => `${value}=${encodeURIComponent(data[value])}`)
+      .join('&');
+ 	}
+
 }

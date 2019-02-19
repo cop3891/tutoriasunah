@@ -16,8 +16,10 @@ export class EstudianteService {
   }
 
   registrarEstudiante(estudiante: any) {
-    const body = JSON.stringify(estudiante);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const body = this.encodeDataToURL(estudiante);
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    headers.append('authentication', "3d524a53c110e4c22463b10ed32cef9d");
     const url = urljoin(this.estudianteUrl, 'registrarEstudiante');
 
     return this.http.post(url, body, { headers })
@@ -29,5 +31,12 @@ export class EstudianteService {
     const url = urljoin(environment.apiUrl, 'estudiante/buscarEstudiante/'+numeroCuenta+'/'+numeroIdentificacion);
     return this.http.get(url).toPromise().then(response => response.json() as any);
   }
+
+  encodeDataToURL = (data) => {
+    return Object
+      .keys(data)
+      .map(value => `${value}=${encodeURIComponent(data[value])}`)
+      .join('&');
+ }
 
 }
