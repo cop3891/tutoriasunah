@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, Params } from '@angular/router';
-import { Http, Headers, Response } from '@angular/http';
+import { HttpHeaders,  HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import urljoin = require('url-join');
 import { Observable } from 'rxjs/Observable';
@@ -29,7 +29,7 @@ export class UsuarioService {
 	
 	}
 
-	constructor(private router: Router, private http: Http) {
+	constructor(private router: Router, private http: HttpClient) {
 	}
 
 	getCodigoUsuario():number{
@@ -55,15 +55,12 @@ export class UsuarioService {
     iniciarSesion(usuario: any) {
 		const body = this.encodeDataToURL(usuario);
 		console.log(body)
-		let headers = new Headers();
-    	headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    	headers.append('Authorization', "3d524a53c110e4c22463b10ed32cef9d");
-    	console.log(headers)
-		const url = urljoin(environment.apiUrl, '/login');
-
-		return this.http.post(url, body, { headers })
-		  .map((response: Response) => response.json())
-		  .catch((error: Response) => Observable.throw(error.json()));
+		const url = urljoin(environment.apiUrl, 'login');
+		let headers: HttpHeaders = new HttpHeaders();
+		headers = headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    	headers = headers.append('Authorization', "3d524a53c110e4c22463b10ed32cef9d");
+		console.log(headers)
+		return this.http.post(url, body, { headers: headers}).subscribe()
 	}
 
 	encodeDataToURL = (data) => {

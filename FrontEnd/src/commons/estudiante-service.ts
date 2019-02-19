@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { environment } from '../environments/environment';
 import urljoin = require('url-join');
 import { Observable } from 'rxjs/Observable';
@@ -21,8 +21,8 @@ export class EstudianteService {
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
     headers.append('Authorization', "3d524a53c110e4c22463b10ed32cef9d");
     const url = urljoin(this.estudianteUrl, 'registrarEstudiante');
-
-    return this.http.post(url, body, { headers })
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(url, body, options)
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
