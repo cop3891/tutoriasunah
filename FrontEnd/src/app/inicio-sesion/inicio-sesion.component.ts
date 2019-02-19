@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../commons/session/user';
 import { TipoPersona } from '../../commons/session/user';
 import { UsuarioService } from '../../commons/usuario-service';
+import { NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -52,8 +53,11 @@ export class InicioSesionComponent implements OnInit {
 		
 	}
 
-	iniciarSesion():void{
-		this.usuarioService.iniciarSesion({numeroCuenta: '20131013754', contrasenia: 'asd123'})
+	iniciarSesion(contrasenia, numeroCuenta):void{
+
+		console.log(contrasenia)
+		let initialize = this.usuarioService.iniciarSesion({numeroCuenta: numeroCuenta, contrasenia: contrasenia})
+		console.log(initialize)
 	}
 
 }

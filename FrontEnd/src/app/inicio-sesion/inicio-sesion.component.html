@@ -8,13 +8,13 @@
           <h5 class="text-center txt-aviso2">{{lblAviso2}}</h5><br>
           <div class="form-group">
             <label for="formGroupExampleInput">{{lblTituloPrimerInput}}</label>
-            <input type="text" class="form-control" id="formGroupExampleInput"  placeholder="{{lblTituloPrimerInput}}">
+            <input type="text" class="form-control" id="formGroupExampleInput"  placeholder="{{lblTituloPrimerInput}}" [(ngModel)]="numeroCuenta" name="numeroCuenta">
           </div>
           <div class="form-group">
             <label for="formGroupExampleInput2">Clave de acceso</label>
-            <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Clave">
+            <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Clave" [(ngModel)]="contrasenia" name="contrasenia">
           </div>
-          <button (click)="iniciarSesion()" type="button" class="btn btn-outline-info b-btn-login">Ingresar</button>
+          <button (click)="iniciarSesion(contrasenia, numeroCuenta)" type="button" class="btn btn-outline-info b-btn-login">Ingresar</button>
         </form>
       </div>
     </div><br>
